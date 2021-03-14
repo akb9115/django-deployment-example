@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+{% load my_extras %}
+    <h1>Welcome to the Index Page</h1>
+    <h1>We are learning template inheritance.</h1>
+    {% if student %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Roll Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Delete Record</th>
+        </tr>
+        </thead>
+        {% for data in student %}
+        <tbody>
+        <tr>
+            <td>{{ data.roll }}</td>
+            <td>{{ data.first_name|myCustomCapitalization:0 }}</td>
+            <td>{{ data.last_name|myCustomCapitalization:0 }}</td>
+            <td><a href="{% url 'basic_app:deleteStudent' data.roll %}">Delete</a></button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+    <h1>Welcome to the Relative Url Page</h1>
+    <a href="{% url 'basic_app:other' %}">OTHER PAGE</a>
+    <a href="{% url 'admin:index' %}">ADMIN PAGE</a>
+    <a href="{% url 'index' %}">INDEX PAGE</a>
+{% endblock %}
